@@ -10,14 +10,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
-
-  final settingsBox = await Hive.openBox(AppConstants.settingsBox);
-  final contactsBox = await Hive.openBox(AppConstants.contactsBox);
-  final billsBox = await Hive.openBox(AppConstants.billsBox);
-
-  print('📦 SETTINGS BOX: ${settingsBox.toMap()}');
-  print('👥 CONTACTS BOX: ${contactsBox.toMap()}');
-  print('🧾 BILLS BOX: ${billsBox.toMap()}');
+  await Hive.openBox(AppConstants.settingsBox);
+  await Hive.openBox(AppConstants.contactsBox);
+  await Hive.openBox(AppConstants.billsBox);
+  await Hive.openBox(AppConstants.banksCacheBox);
   runApp(const ProviderScope(child: ChiaBillApp()));
 }
 
